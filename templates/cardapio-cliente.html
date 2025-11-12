@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Cardápio — Papazitos</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+ 
+  <header class="header small">
+    <div class="brand"><h1>Papazitos</h1></div>
+    <div class="user-area">
+      <div class="hello">Olá, <strong id="userName"></strong></div>
+      <button class="btn outline" id="btnLogout">Sair</button>
+      <button class="btn outline" id="btnCarrinho">
+        🛒 <span id="carrinhoQtd">0</span>
+      </button>
+    </div>
+  </header>
+
+ 
+  <main class="container">
+   
+    <h2>Restaurantes</h2>
+    <div id="listaRestaurantes" class="cards-list"></div>
+
+    
+    <template id="rest-template">
+      <article class="rest-card">
+        <div class="rest-info">
+          <h3 class="rest-name"></h3>
+          <p class="rest-desc muted"></p>
+        </div>
+        <div class="rest-actions">
+          <button class="btn primary btn-ver">Ver Cardápio</button>
+        </div>
+      </article>
+    </template>
+
+    
+    <section id="rest-cardapio" class="hidden">
+  <button class="btn outline" id="voltarRest">← Voltar</button>
+  <h3 id="restTitle"></h3>
+
+  
+  <div id="produtosList"></div>
+
+  
+  <h3>Seu Carrinho</h3>
+  <div id="carrinhoResumo" class="msg muted">Carrinho vazio.</div>
+
+ 
+  <button class="btn success" onclick="finalizarPedido()">Finalizar Pedido</button>
+</section>
+
+  </main>
+
+  
+  <script src="{{ url_for('static', filename='js/cardapio.js') }}"></script>
+</body>
+</html>

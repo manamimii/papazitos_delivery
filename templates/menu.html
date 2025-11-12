@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Menu — Papazitos</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+</head>
+<body>
+  <header class="header">
+    <div class="brand">
+      <h1>🍕 Papazitos</h1>
+      <p id="userType" class="muted"></p>
+    </div>
+    <div class="user-area">
+      <div class="hello">Olá, <strong id="userName"></strong>!</div>
+      <button class="btn outline" id="btnLogout">Sair</button>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="grid-3">
+      <a class="card" href="{{ url_for('cardapio') }}">
+        
+        Ver Cardápio
+      </a>
+      
+      {% if session.get('perfil') == 'restaurante' %}
+         <a class="card" href="{{ url_for('gerenciar_cardapio') }}">Gerenciar Cardápio</a>
+      {% endif %}
+      
+      <a class="card" href="{{ url_for('pedido') }}">
+        
+        Meus Pedidos
+      </a>
+    </div>
+  </main>
+
+  <script src="{{ url_for('static', filename='js/menu.js') }}"></script>
+</body>
+</html>

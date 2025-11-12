@@ -1,0 +1,12 @@
+.progress {
+  margin: 12px 0;
+  font-weight: bold;
+}
+
+.step.done {
+  color: green;
+}
+
+.step {
+  text-transform: capitalize;
+}

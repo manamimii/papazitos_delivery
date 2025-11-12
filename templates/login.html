@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Papazitos — Entrar / Cadastrar</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+  <main class="center-card">
+    <h1>Papazitos</h1>
+    <p class="lead">Bem-vindo(a)!</p>
+
+    <section id="telaInicial">
+      <button class="btn primary" onclick="mostrarLogin()">Entrar</button>
+      <button class="btn outline" onclick="mostrarCadastro()">Cadastrar</button>
+    </section>
+
+    <section id="telaLogin" class="hidden">
+      <h2>Entrar</h2>
+      <form id="loginForm">
+        <label>Email <input id="loginEmail" type="email" required></label>
+        <label>Senha <input id="loginSenha" type="password" minlength="4" required></label>
+        <div class="msg" id="loginError"></div>
+        <div class="actions">
+          <button class="btn primary" type="submit">Entrar</button>
+          <button class="btn outline" type="button" onclick="voltarInicio()">Voltar</button>
+        </div>
+      </form>
+    </section>
+
+    <section id="telaCadastro" class="hidden">
+      <h2>Cadastrar</h2>
+      <form id="cadastroForm">
+        <label>Tipo de conta
+          <select id="tipoConta" required>
+            <option value="">-- selecione --</option>
+            <option value="cliente">Cliente</option>
+            <option value="restaurante">Restaurante</option>
+          </select>
+        </label>
+        <label>Nome <input id="cadastroNome" type="text" required></label>
+        <label>Email <input id="cadastroEmail" type="email" required></label>
+        <label>Senha <input id="cadastroSenha" type="password" minlength="4" required></label>
+
+        <div id="camposRestaurante" class="hidden">
+          <label>Nome do restaurante <input id="nomeRestaurante" type="text"></label>
+          <label>CNPJ <input id="cnpj" type="text"></label>
+        </div>
+
+        <label>Telefone <input id="cadastroTelefone" type="tel"></label>
+        <div class="msg" id="cadastroError"></div>
+        <div class="actions">
+          <button class="btn primary" type="submit">Criar conta</button>
+          <button class="btn outline" type="button" onclick="voltarInicio()">Voltar</button>
+        </div>
+      </form>
+    </section>
+
+    <p class="small"> <code></code>.</p>
+  </main>
+
+<script src="{{ url_for('static', filename='js/login.js') }}"></script>
+</body>
+</html>
+

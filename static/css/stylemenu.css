@@ -1,0 +1,224 @@
+
+.header {
+    background: white;
+    border-bottom: 1px solid var(--border);
+    padding: 20px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.brand h1 {
+    color: var(--primary);
+    font-size: 1.8rem;
+    margin: 0;
+    font-weight: 700;
+}
+
+.brand .muted {
+    color: var(--muted);
+    font-size: 0.9rem;
+    margin: 5px 0 0 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.user-badge {
+    background: var(--primary);
+    color: white;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+.user-area {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.hello {
+    color: var(--text);
+    font-size: 1rem;
+    text-align: right;
+}
+
+.hello strong {
+    color: var(--primary);
+    font-size: 1.1rem;
+}
+
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 50px 24px;
+    min-height: calc(100vh - 120px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.grid-3 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+    width: 100%;
+    max-width: 1000px;
+}
+
+
+.card {
+    background: white;
+    border-radius: 16px;
+    padding: 40px 30px;
+    text-decoration: none;
+    color: var(--text);
+    border: 2px solid transparent;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    min-height: 200px;
+    position: relative;
+    overflow: hidden;
+}
+
+.card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 5px;
+    background: linear-gradient(90deg, var(--primary), var(--accent));
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    border-color: var(--primary);
+    box-shadow: 0 15px 35px rgba(232, 93, 59, 0.15);
+}
+
+.card:hover::before {
+    transform: scaleX(1);
+}
+
+
+.card::after {
+    content: '';
+    font-size: 3rem;
+    margin-bottom: 20px;
+    display: block;
+}
+
+.card[href*="cardapio-cliente"]::after {
+    content: '📋';
+}
+
+.card[href*="gerenciar-cardapio"]::after {
+    content: '⚙️';
+}
+
+.card[href*="pedidos"]::after {
+    content: '📦';
+}
+
+
+#btnLogout {
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-size: 0.9rem;
+    white-space: nowrap;
+}
+
+
+@media (max-width: 768px) {
+    .header {
+        padding: 15px 20px;
+        flex-direction: column;
+        text-align: center;
+        gap: 12px;
+    }
+    
+    .user-area {
+        flex-direction: column;
+        gap: 12px;
+        width: 100%;
+    }
+    
+    .hello {
+        text-align: center;
+    }
+    
+    .container {
+        padding: 30px 20px;
+    }
+    
+    .grid-3 {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .card {
+        padding: 30px 20px;
+        min-height: 150px;
+    }
+}
+
+@media (max-width: 480px) {
+    .brand h1 {
+        font-size: 1.5rem;
+    }
+    
+    .container {
+        padding: 20px 15px;
+    }
+    
+    .card {
+        padding: 25px 20px;
+        min-height: 130px;
+    }
+    
+    .card::after {
+        font-size: 2.5rem;
+        margin-bottom: 15px;
+    }
+}
+
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.card {
+    animation: fadeInUp 0.6s ease forwards;
+    opacity: 0;
+}
+
+.card:nth-child(1) { animation-delay: 0.1s; }
+.card:nth-child(2) { animation-delay: 0.2s; }
+.card:nth-child(3) { animation-delay: 0.3s; }

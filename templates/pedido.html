@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Pedidos — Papazitos</title>
+
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/stylepedido.css') }}">
+</head>
+
+<body>
+<header class="header small">
+  <div class="brand"><h1>Papazitos</h1></div>
+  <div class="user-area">
+    <a class="btn outline" href="/logout">Sair</a>
+  </div>
+</header>
+
+<main class="container">
+  <h2>Status do Pedido</h2>
+
+  <div id="pedidoStatus">Carregando...</div>
+</main>
+
+<script src="{{ url_for('static', filename='js/pedido.js') }}"></script>
+</body>
+</html>
